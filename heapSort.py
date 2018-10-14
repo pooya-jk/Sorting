@@ -1,13 +1,39 @@
+"""
+implementing heapsort
+"""
+
 import math
 
 
-def build_heap(A):
+def heap_sort(A):
+    """
+    sorting the array with heap
+    """
+
+    build_max_heap(A)
+    A_ = []
+    for i in range((len(A)),0,-1):
+        A_.append(A[0])
+        (A[0], A[i-1]) = (A[i-1], A[0])
+        del A[i-1]
+        maxheapify(A,0)
+    return A_
+
+
+def build_max_heap(A):
+    """
+    bulding the max heap
+    """
+
     for i in range(int((math.floor(len(A)/2))),-1,-1):
-        print(i)
         maxheapify(A,i)
 
 
 def maxheapify(A ,i):
+    """
+    placing the specified index in the right palce
+    """
+
     l = left(A,i+1)
     r = right(A,i+1)
     if l == 0 and r == 0:
@@ -23,25 +49,42 @@ def maxheapify(A ,i):
         (A[largest],A[i]) = (A[i],A[largest])
         maxheapify(A,largest)
 
+
 def left(A,index):
+    """
+    finding the left node in the binary tree
+    """
+
     l = (2*index)
-    if len(A) > l:
+    if len(A) >= l:
         return l
     else:
         return 0
 
+
 def right(A,index):
+    """
+    finding the right node in the binary tree
+    """
+
     r = (2 * index)+1
-    if len(A) > r:
+    if len(A) >= r:
         return r
     else:
         return 0
-"""    
+
+
 def parent(A,index):
+    """
+    finding the parent node in the binary tree
+    """
     return math.floor(index/2)
-"""
-a = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
-maxheapify(a,0)
-print(a)
-build_heap(a)
-print(a)
+
+
+if __name__ == '__main__':
+    pass
+else:
+    pass
+
+
+
