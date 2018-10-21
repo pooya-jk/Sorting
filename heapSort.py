@@ -1,4 +1,4 @@
-__author__ = 'Pooya Koshanfar'
+__author__ = 'Pooya Kooshanfar'
 
 """
 implementing heapsort
