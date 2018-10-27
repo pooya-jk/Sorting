@@ -28,7 +28,7 @@ def find_max_by_index(array, start_index=0):
     max_index = start_index
     for i in range(start_index, len(array)):
         if array[i] > array[max_index]:
-            max_index = i;
+            max_index = i
     return max_index
 
 
